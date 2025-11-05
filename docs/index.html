@@ -218,26 +218,30 @@ abstract.addTo(map);
 			    indicatorLabel = 'No data';
 			}
             var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Name</th>\
-                        <td class="visible-with-data" id="nimi">' + (feature.properties['nimi'] !== null ? autolinker.link(String(feature.properties['nimi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Basic education only</th>\
-                        <td class="visible-with-data" id="education">' + (feature.properties['education'] !== null ? autolinker.link(String(feature.properties['education']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Median income</th>\
-                        <td>' + (feature.properties['hr_mtu'] !== null ? autolinker.link(String(feature.properties['hr_mtu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Unemployment rate (%)</th>\
-                        <td class="visible-with-data" id="Emplyotyme">' + (feature.properties['Emplyotyme'] !== null ? autolinker.link(String(feature.properties['Emplyotyme']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-			</table>\
+    <tr>\
+        <th scope="row">Name</th>\
+        <td class="visible-with-data" id="nimi">' + (feature.properties['nimi'] !== null ? autolinker.link(String(feature.properties['nimi']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+    </tr>\
+    <tr>\
+        <th scope="row">Basic education only</th>\
+        <td class="visible-with-data" id="education">' + (feature.properties['education'] !== null ? autolinker.link(String(feature.properties['education']).replace(/'/g, '\'').toLocaleString() + ' %') : 'MISSING') + '</td>\
+    </tr>\
+    <tr>\
+        <th scope="row">Median income</th>\
+        <td>' + (feature.properties['hr_mtu'] !== null ? autolinker.link(String(feature.properties['hr_mtu']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+    </tr>\
+    <tr>\
+        <th scope="row">Unemployment rate (%)</th>\
+        <td class="visible-with-data" id="Emplyotyme">' + (feature.properties['Emplyotyme'] !== null ? autolinker.link(String(feature.properties['Emplyotyme']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+    </tr>\
+</table>\
 <p style="margin:2px 0; line-height:1.0; font-size:13px; color:#333;">\
 <b>Socioeconomic status: </b>' + indicatorLabel + '\
-			</p>';
+</p>';
+
+// Debug-tulostus konsoliin
+console.log('Education property:', feature.properties['education']);
+console.log('Education type:', typeof feature.properties['education']);
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
 				addClassToPopupIfMedia(content, e.popup);
