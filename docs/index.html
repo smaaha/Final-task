@@ -224,7 +224,7 @@ abstract.addTo(map);
                     </tr>\
                     <tr>\
                         <th scope="row">Basic education only</th>\
-                        <td>' + (feature.properties['education'] !== null ? autolinker.link(String(feature.properties['education']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="education">' + (feature.properties['education'] !== null ? autolinker.link(String(feature.properties['education']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Median income</th>\
