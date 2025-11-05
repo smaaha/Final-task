@@ -53,7 +53,7 @@
               });           
         }
         var map = L.map('map', {
-            zoomControl:false, maxZoom:28, minZoom:5
+            zoomControl:false, maxZoom:28, minZoom:5, center: [60.4518, 22.2666], zoom: 12
         })
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
@@ -224,7 +224,7 @@ abstract.addTo(map);
                     </tr>\
                     <tr>\
                         <th scope="row">Basic education only</th>\
-                        <td>' + (feature.properties['ko_perus'] !== null ? autolinker.link(String(feature.properties['ko_perus']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['education'] !== null ? autolinker.link(String(feature.properties['education']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Median income</th>\
